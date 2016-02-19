@@ -125,6 +125,7 @@
     });
 
     // Firefox Sync sign in flow button
+    /*
     $('#cta-sync').on('click', function(e) {
         e.preventDefault();
 
@@ -135,4 +136,5 @@
 
         Mozilla.UITour.showFirefoxAccounts();
     });
+    */
 })(window.jQuery, window.Mozilla);

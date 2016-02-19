@@ -94,9 +94,16 @@
         </div>
 
         <div class="show-fx-31-signed-out">
-          <button class="sync-button" data-interaction="button click" data-element-action="Sync CTA"  id="cta-sync">
-            {{ _('Get started with Sync') }}
-          </button>
+          <p>
+            {{ _('With your Firefox Account you can sync your bookmarks, passwords, open tabs and more, and access them everywhere you use Firefox.') }}
+          </p>
+          <form action="{{ url('firefox.accounts') }}" method="get">
+            <label for="fxa-email">Email</label>
+            <input type="email" name="fxa-email" id="fxa-email" required>
+            <button type="submit" class="sync-button" data-interaction="button click" data-element-action="Sync CTA"  id="cta-sync">
+              {{ _('Get started with Sync') }}
+            </button>
+          </form>
         </div>
 
         <div class="show-fx-29-30">

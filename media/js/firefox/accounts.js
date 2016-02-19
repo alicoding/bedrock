@@ -5,6 +5,8 @@
 ;(function(Mozilla, $) {
     'use strict';
 
+    var params = new window._SearchParams();
+
     var $fxaFrame = $('#fxa');
     var fxaIframeHost = $('main').data('fxa-iframe-host');
     var fxaIframeSrc = $fxaFrame.data('src');
@@ -18,6 +20,11 @@
     // check user's Fx version to determine FxA iframe experience
     if (Mozilla.Client.FirefoxMajorVersion >= 46) {
         fxaIframeSrc = fxaIframeSrc.replace('context=iframe', 'context=fx_firstrun_v2');
+    }
+
+    // if email address provided in querystring, send to FxA frame
+    if (params.get('fxa-email')) {
+        fxaIframeSrc += '&email=' + params.get('fxa-email');
     }
 
     function onFormPing(data) {
